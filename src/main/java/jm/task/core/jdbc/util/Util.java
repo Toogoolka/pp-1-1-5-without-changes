@@ -12,25 +12,25 @@ import java.util.Properties;
 public class Util {
     // реализуйте настройку соеденения с БД
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static final String DB_USERNAME = "Tugulka";
-    private static final String DB_PASSWORD = "Vladika23.";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/data";
+    private static final String DB_USERNAME = "root";
+    private static final String DB_PASSWORD = "";
 
 
     private static Configuration hibernateCfg(){
         Configuration configuration = new Configuration();
 
-        final Properties PROPERTIES = new Properties();
+        final Properties prop = new Properties();
 
-        PROPERTIES.put("hibernate.connection.driver_class", DB_DRIVER);
-        PROPERTIES.put("hibernate.connection.url", DB_URL);
-        PROPERTIES.put("hibernate.connection.username", DB_USERNAME);
-        PROPERTIES.put("hibernate.connection.password", DB_PASSWORD);
-        PROPERTIES.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-        PROPERTIES.put("hibernate.show_sql", true);
-        PROPERTIES.put("hbm2ddl.auto", "create-drop");
-        PROPERTIES.put("hibernate.current_session_context_class", "thread");
-        configuration.addProperties(PROPERTIES).addAnnotatedClass(User.class);
+        prop.put("hibernate.connection.driver_class", DB_DRIVER);
+        prop.put("hibernate.connection.url", DB_URL);
+        prop.put("hibernate.connection.username", DB_USERNAME);
+        prop.put("hibernate.connection.password", DB_PASSWORD);
+        prop.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+        prop.put("hibernate.show_sql", true);
+        prop.put("hbm2ddl.auto", "create-drop");
+        prop.put("hibernate.current_session_context_class", "thread");
+        configuration.addProperties(prop).addAnnotatedClass(User.class);
 
         return configuration;
     }
